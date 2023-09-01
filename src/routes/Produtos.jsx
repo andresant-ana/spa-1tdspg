@@ -5,6 +5,10 @@ import "./Produtos.css";
 
 export default function Produtos() {
 
+    const estiloImg = {
+        width: "100px",
+        height: "100px",
+    }
 
   return (
     <>
@@ -15,7 +19,9 @@ export default function Produtos() {
                 <tr>
                     <th>ID</th>
                     <th>NOME</th>
+                    <th>DESCRIÇÃO</th>
                     <th>PREÇO</th>
+                    <th>IMG</th>
                     <th><Editar/> / <Excluir/></th>
 
                 </tr>
@@ -24,7 +30,9 @@ export default function Produtos() {
                         <tr key={indice}>
                             <td>{produto.id}</td>
                             <td>{produto.nome}</td>
+                            <td>{produto.desc}</td>
                             <td>{produto.preco}</td>
+                            <td><img style={estiloImg} src={`${produto.img}`} alt={`${produto.desc}`}/></td>
                             <td> <Link to={`/editar/produto/${produto.id}`}><Editar/></Link> / <Link to={`/excluir/produto/${produto.id}`}><Excluir/></Link> </td>
                         </tr>
                 ))}
