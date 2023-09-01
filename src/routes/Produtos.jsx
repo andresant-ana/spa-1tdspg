@@ -1,3 +1,4 @@
+import { ListaProdutos } from "../components/ListaProdutos";
 import "./Produtos.css";
 
 export default function Produtos() {
@@ -13,9 +14,10 @@ export default function Produtos() {
                     <th>ID</th>
                     <th>NOME</th>
                     <th>PREÇO</th>
+                    
                 </tr>
             
-                {listaprodutos.map( (produto, indice)=>(
+                {ListaProdutos.map( (produto, indice)=>(
                         <tr key={indice}>
                             <td>{produto.id}</td>
                             <td>{produto.nome}</td>
@@ -28,9 +30,3 @@ export default function Produtos() {
     </>
   )
 }
-
-export const listaprodutos = [
-    {id:1, nome: 'Teclado', preco: 150},
-    {id:2, nome: 'Mouse', preco: 120},
-    {id:3, nome: 'Monitor', preco: 950},
-]
