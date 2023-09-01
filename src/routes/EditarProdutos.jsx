@@ -15,12 +15,26 @@ export default function EditarProdutos() {
         }
     });
 
+    const handlerEditarProduto = (event) => {
+        event.preventDefault();
+    }
+
   return (
     <>
         <div>
             <h1>EDITAR-PRODUTOS</h1>
-            <p>NOME: - {prodRecuperadoPorId[0].nome}</p>
-            <p>PREÇO: - {prodRecuperadoPorId[0].preco}</p>
+            <form action="#" method="get">
+              <fieldset>
+                <legend>EDITAR PRODUTO</legend>
+                <div>
+                  <label htmlFor="idProduto">Nome Produto:</label>
+                  <input type="text" name="nomeProduto" id="idProduto" value={prodRecuperadoPorId[0].nome} onChange={handlerEditarProduto} contentEditable="false"  />
+                </div>
+                <div>
+                  <button >EDITAR</button>
+                </div>
+              </fieldset>
+            </form>
         </div>
     </>
   )
