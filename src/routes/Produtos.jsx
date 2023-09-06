@@ -1,7 +1,14 @@
+import { Link } from "react-router-dom";
+import { ListaProdutos } from "../components/ListaProdutos";
+import {AiOutlineEdit as Editar, AiOutlineDelete as Excluir} from "react-icons/ai";
 import "./Produtos.css";
 
 export default function Produtos() {
 
+    const estiloImg = {
+        width: "100px",
+        height: "100px",
+    }
 
   return (
     <>
@@ -12,14 +19,21 @@ export default function Produtos() {
                 <tr>
                     <th>ID</th>
                     <th>NOME</th>
+                    <th>DESCRIÇÃO</th>
                     <th>PREÇO</th>
+                    <th>IMG</th>
+                    <th><Editar/> / <Excluir/></th>
+
                 </tr>
             
-                {listaprodutos.map( (produto, indice)=>(
+                {ListaProdutos.map( (produto, indice)=>(
                         <tr key={indice}>
                             <td>{produto.id}</td>
                             <td>{produto.nome}</td>
+                            <td>{produto.desc}</td>
                             <td>{produto.preco}</td>
+                            <td><img style={estiloImg} src={`${produto.img}`} alt={`${produto.desc}`}/></td>
+                            <td> <Link to={`/editar/produto/${produto.id}`}><Editar/></Link> / <Link to={`/excluir/produto/${produto.id}`}><Excluir/></Link> </td>
                         </tr>
                 ))}
             </table>
@@ -28,9 +42,3 @@ export default function Produtos() {
     </>
   )
 }
-
-export const listaprodutos = [
-    {id:1, nome: 'Teclado', preco: 150},
-    {id:2, nome: 'Mouse', preco: 120},
-    {id:3, nome: 'Monitor', preco: 950},
-]
