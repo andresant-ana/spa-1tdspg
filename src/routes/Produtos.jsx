@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ListaProdutos } from "../components/ListaProdutos";
+// import { ListaProdutos } from "../components/ListaProdutos";
 import { AiOutlineEdit as Editar, AiOutlineDelete as Excluir} from "react-icons/ai";
 import classes from "./Produtos.module.css";
 import { useEffect, useState } from "react";
@@ -9,9 +9,27 @@ export default function Produtos() {
 
   const [novaListaProdutos, setNovaListaProdutos] = useState([{}]);
 
+  // useEffect(() => {
+  //   setNovaListaProdutos(ListaProdutos);
+  //   console.log("useEffect que renderiza apenas uma vez!");
+  // }, []);
+
   useEffect(() => {
-    setNovaListaProdutos(ListaProdutos);
-    console.log("useEffect que renderiza apenas uma vez!");
+
+    //fetch = API do Javascript para realizar requisições/requests, ele utiliza como parâmetro uma URL ou URI.
+    //fetch(http://minhaApi.com.br/exemplos)
+    fetch("http://localhost:5000/produtos", {
+      method: "GET",
+      headers:{
+        "Content-Type" : "application/json"
+      }
+    })
+    .then((response)=> response.json())
+    .then((data)=>{
+      setNovaListaProdutos(data);
+    })
+    .catch(error => console.log(error));
+
   }, []);
 
   return (
