@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 // import { ListaProdutos } from "../components/ListaProdutos";
-import { AiOutlineEdit as Editar, AiOutlineDelete as Excluir} from "react-icons/ai";
+import {
+  AiOutlineEdit as Editar,
+  AiOutlineDelete as Excluir,
+} from "react-icons/ai";
 import classes from "./Produtos.module.css";
 import { useEffect, useState } from "react";
 import ModalExemplo from "../components/ModalExemplo/ModalExemplo";
@@ -15,32 +18,35 @@ export default function Produtos() {
   //   console.log("useEffect que renderiza apenas uma vez!");
   // }, []);
 
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
-
-    //fetch = API do Javascript para realizar requisições/requests, ele utiliza como parâmetro uma URL ou URI.
-    //fetch(http://minhaApi.com.br/exemplos)
-    fetch("http://localhost:5000/produtos", {
-      method: "GET",
-      headers:{
-        "Content-Type" : "application/json"
-      }
-    })
-    .then((response)=> response.json())
-    .then((data)=>{
-      setNovaListaProdutos(data);
-    })
-    .catch(error => console.log(error));
-  }, []);
-
-    const [open, setOpen] = useState(false);
+    if (!open) {
+      //fetch = API do Javascript para realizar requisições/requests, ele utiliza como parâmetro uma URL ou URI.
+      //fetch(http://minhaApi.com.br/exemplos)
+      fetch("http://localhost:5000/produtos", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setNovaListaProdutos(data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [open]);
 
   return (
     <>
       <div>
         <h1>PRODUTOS</h1>
 
-        { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
-        <button onClick={()=> setOpen(true)}>OPEN-MODAL</button>
+        {open ? <ModalExemplo open={open} setOpen={setOpen} /> : ""}
+
+        <Link onClick={() => setOpen(true)}>Adicionar Produto</Link>
+
         <table className={classes.tabelaProd}>
           <thead className={classes.tabelaCabecalho}>
             <tr>
