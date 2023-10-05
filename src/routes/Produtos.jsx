@@ -37,26 +37,25 @@ export default function Produtos() {
         .catch((error) => console.log(error));
     }
   }, [open]);
+  
+  const handleExcluir = (id) => {
 
-  const handleExcluir = (id) =>{
-
-    fetch(`http://localhost:5000/produtos/${id}`,{
-      method: "DELETE",
-      headers:{
-        "Content-Type":"application/json"
-      },
+    fetch(`http://localhost:5000/produtos/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        }
     })
-    .then((response)=> console.log(response.status))
-    .catch(error=> console.log(error));
+    .then((response) => console.log(response.status))
+    .catch((error) => console.log(error))
 
-    window.location("/produtos");
+    window.location("produtos");
 
   }
 
   return (
     <>
       <div>
-        <h1>PRODUTOS</h1>
 
         {open ? <ModalExemplo open={open} setOpen={setOpen} /> : ""}
 
@@ -95,7 +94,7 @@ export default function Produtos() {
                     <Editar />
                   </Link>{" "}
                   /{" "}
-                  <Link onClick={()=> handleExcluir(produto.id)}>
+                  <Link onClick={() => handleExcluir(produto.id)}>
                     <Excluir />
                   </Link>{" "}
                 </td>
@@ -103,11 +102,16 @@ export default function Produtos() {
             ))}
           </tbody>
           <tfoot className={classes.tabelaRodape}>
-            <tr>
-              <td colSpan={6}>
-                PRODUTOS INFORMÁTICOS - QTD = {novaListaProdutos.length}
+            <div className="botoes">
+              <td>
+                <p className="qtd" colSpan={6}>QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}</p>
               </td>
-            </tr>
+
+              <Link to={`/adicionar/produto`} className="btn">
+                ADICIONAR NOVO PRODUTO
+              </Link>
+
+            </div>
           </tfoot>
         </table>
       </div>

@@ -2,9 +2,12 @@
     border-collapse: collapse;
     margin: 0 auto;
     border: 2px solid #ccc;
+    
+    
 
     .tabelaCabecalho {
-        background-color: #ecb15f;
+        background-color: #5900ff;
+        color: #fff;
         & th {
             border: 2px solid #ccc;
             text-align: center;
@@ -13,9 +16,13 @@
 
     .tabelaCorpo {
         & tr {
-            height: 48px !important;
+        height: 48px !important;
             &:hover {
-                background-color: #675d5dee;
+                background-color: #5900ff;
+                color: #ffffff;
+                .icon {
+                    color: #fff;
+                }
             }
 
             & td {
@@ -25,8 +32,9 @@
                     display: block;
                     margin: 0 auto;
                     width: 15%;
+                    transition: 0.4s;
                     &:hover {
-                        width: 35%;
+                        width: 40%;
                     }
                 }
 
@@ -43,10 +51,18 @@
     }
 
     .tabelaRodape {
-        background-color: #ecb15f;
-        & td{
-            text-align: center;
-            font-weight: bold;
-        }
+        display: flex;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 18px;
+    }
+
+}
+
+@keyframes brilho {
+    0%, 100% { color: #5900ff;}
+    50% {
+        color: #2d0b6b;
+        font-stretch: 1.5px;
     }
 }

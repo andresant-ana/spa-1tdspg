@@ -57,10 +57,8 @@ export default function EditarProdutos() {
 
   return (
     <>
-        <div>
+        <div className="container">
 
-
-            <h1>EDITAR-PRODUTOS</h1>
             <form onSubmit={handleSubmit}>
               <fieldset>
                 <legend>EDITAR PRODUTO</legend>
@@ -78,18 +76,11 @@ export default function EditarProdutos() {
                 </div>
 
                 <div>
-                  <button >EDITAR</button>
+                  <button className="btn" >EDITAR</button>
                 </div>
               </fieldset>
             </form>
         </div>
-
-        <div>
-          <p>Nome : {produto.nome}</p>
-          <p>Preço : {produto.preco}</p>
-          <p>Desc : {produto.desc}</p>
-        </div>
-
     </>
   )
 }

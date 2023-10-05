@@ -1,13 +1,16 @@
-.container {
-    $backColorModal: rgba(0, 0, 0, 0.8);
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+.container{
+
+    $backColor: rgba(0,0,0,0.7);
     $textColor: #fff;
-    $familiaDaFonte: Arial, Helvetica, sans-serif;
-    $tamanhoDaFonte: 1.5rem;
+    $familiaDaFonte: Arial,Helvetica,sans-serif;
+    $tamanhoDaFonte: 1.5 rem;
     $arredondamentoDaBorda: 5px;
     $bordaPadrao: solid 2px #ccc;
-    $visibilida: block;
+    $visibilidade: block;
 
-    background-color: $backColorModal;
+    background-color: $backColor;
     color: $textColor;
     width: 100%;
     height: 100%;
@@ -16,59 +19,66 @@
     left: 0;
     font-size: 1.5rem;
 
+
     h1 {
+        font-family: 'Minecraft', sans-serif;
         text-align: center;
     }
 
     @mixin formInput($largura, $altura, $margem) {
-        input {
-            display: $visibilida;
+        
+        input{
+            display: $visibilidade;
             width: $largura;
             height: $altura;
             margin: $margem;
             border-radius: $arredondamentoDaBorda;
             border: $bordaPadrao;
-            padding: 0 10Px;
+            padding: 0 10px;
         }
+
     }
 
     form {
         width: 85%;
         margin: 0 auto;
+
         div {
             margin: 2% 0;
-            @include formInput(70%, 40px,0 auto 1% auto);
-
-             label{
-                display: $visibilida;
+            @include formInput(70%, 40px, 0 auto 1% auto);
+            label {
+                display: $visibilidade;
                 width: 70%;
-                margin: 0 auto;
-             }
+                margin: 0 auto 0 auto;
+            }
 
-             button{
-                border: #000000;
+            button {
+                border: #000;
                 border-radius: $arredondamentoDaBorda;
-                background-color: #008000;
+                background-color: #591bcc;
                 width: 40%;
                 height: 60px;
                 margin: 0 auto;
-                display: $visibilida;
+                display: $visibilidade;
                 color: $textColor;
                 font-size: $tamanhoDaFonte;
                 font-weight: bold;
-                transition: background-color 250ms, color 250ms;
+                transition: background-color 250ms, color 300ms;
 
-                &:hover{
-                    background-color: #c1cbc1;
-                    color: #151212;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #5e34ac;
+                    color: #fff;
                 }
 
-                &:active{
-                    background-color: #c70529;
-                    color: $textColor;
+                &:active {
+                    background-color: #1e0a42;
                 }
 
-             }
+            }
+
         }
+
     }
+
 }

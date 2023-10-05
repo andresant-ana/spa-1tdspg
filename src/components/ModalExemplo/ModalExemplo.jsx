@@ -1,8 +1,9 @@
 import { useState } from "react";
-import "./ModalInserir.scss";
+// import style from "./ModalExemplo.module.css";
+import style from "./ModalInserir.scss";
 
 export default function ModalExemplo(props) {
-  document.title = "CADASTRO";
+  document.title = "Cadastrar Produto";
 
   let novoId;
 
@@ -70,52 +71,49 @@ export default function ModalExemplo(props) {
         <h1>Cadastrar Produto</h1>
         <div>
           <form onSubmit={handleSubmit}>
-            <fieldset>
-              <legend>Novo Produto</legend>
-              <div>
-                <label htmlFor="idProduto">Nome Produto:</label>
-                <input
-                  type="text"
-                  name="nome"
-                  id="idProduto"
-                  value={produto.nome}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="idPreco">Preço Produto:</label>
-                <input
-                  type="text"
-                  name="preco"
-                  id="idPreco"
-                  value={produto.preco}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="idDesc">Descrição Produto:</label>
-                <input
-                  type="text"
-                  name="desc"
-                  id="idDesc"
-                  value={produto.desc}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="idDesc">Imagem do Produto:</label>
-                <input
-                  type="text"
-                  name="img"
-                  id="idImg"
-                  value={produto.img}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <button>CADASTRAR</button>
-              </div>
-            </fieldset>
+            <div>
+              <label htmlFor="idProduto">Nome Produto:</label>
+              <input
+                type="text"
+                name="nome"
+                id="idProduto"
+                value={produto.nome}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="idPreco">Preço Produto:</label>
+              <input
+                type="text"
+                name="preco"
+                id="idPreco"
+                value={produto.preco}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="idDesc">Descrição Produto:</label>
+              <input
+                type="text"
+                name="desc"
+                id="idDesc"
+                value={produto.desc}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="idDesc">Imagem do Produto:</label>
+              <input
+                type="text"
+                name="img"
+                id="idImg"
+                value={produto.img}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <button>CADASTRAR</button>
+            </div>
           </form>
         </div>
       </div>

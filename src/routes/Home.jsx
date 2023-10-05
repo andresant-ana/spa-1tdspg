@@ -1,16 +1,17 @@
 export default function Home(){
-    document.title = "HOME";
+    
+    document.title = "Shop";
+
     return(
         <>
-            <div>
-                <h1>Produtos em Oferta....</h1>
-                <figure>
-                    <figcaption>
+            <h1>Produtos em oferta</h1>
+            <figure>
+                <figcaption>
 
-                    </figcaption>
-                    <img src="/online-shopping_640.png" alt="Produtos diversos" />
-                </figure>
-            </div>
+                </figcaption>
+                <img src="/4482651.jpg" alt="Produtos diversos" />
+
+            </figure>
         </>
     )
 }
