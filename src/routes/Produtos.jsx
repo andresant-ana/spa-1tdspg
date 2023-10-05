@@ -13,11 +13,6 @@ export default function Produtos() {
 
   const [novaListaProdutos, setNovaListaProdutos] = useState([{}]);
 
-  // useEffect(() => {
-  //   setNovaListaProdutos(ListaProdutos);
-  //   console.log("useEffect que renderiza apenas uma vez!");
-  // }, []);
-
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -30,14 +25,15 @@ export default function Produtos() {
           "Content-Type": "application/json",
         },
       })
-        .then((response) => response.json())
-        .then((data) => {
-          setNovaListaProdutos(data);
-        })
-        .catch((error) => console.log(error));
+      .then((response) => response.json())
+      .then((data) => {
+        setNovaListaProdutos(data);
+      })
+      .catch((error) => console.log(error));
     }
   }, [open]);
   
+
   const handleExcluir = (id) => {
 
     fetch(`http://localhost:5000/produtos/${id}`, {
@@ -46,6 +42,7 @@ export default function Produtos() {
           "Content-Type": "application/json",
         }
     })
+
     .then((response) => console.log(response.status))
     .catch((error) => console.log(error))
 
@@ -58,8 +55,6 @@ export default function Produtos() {
       <div>
 
         {open ? <ModalExemplo open={open} setOpen={setOpen} /> : ""}
-
-        <Link onClick={() => setOpen(true)}>Adicionar Produto</Link>
 
         <table className={classes.tabelaProd}>
           <thead className={classes.tabelaCabecalho}>
@@ -91,25 +86,28 @@ export default function Produtos() {
                 <td>
                   {" "}
                   <Link to={`/editar/produto/${produto.id}`}>
-                    <Editar />
+                    <Editar/>
                   </Link>{" "}
                   /{" "}
                   <Link onClick={() => handleExcluir(produto.id)}>
-                    <Excluir />
+                    <Excluir/>
                   </Link>{" "}
                 </td>
               </tr>
             ))}
           </tbody>
+
           <tfoot className={classes.tabelaRodape}>
             <div className="botoes">
               <td>
                 <p className="qtd" colSpan={6}>QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}</p>
               </td>
 
-              <Link to={`/adicionar/produto`} className="btn">
+              <Link className="btn" onClick={() => setOpen(true)}>ADICIONAR NOVO PRODUTO</Link>
+
+              {/* <Link to={`/adicionar/produto`} className="btn">
                 ADICIONAR NOVO PRODUTO
-              </Link>
+              </Link> */}
 
             </div>
           </tfoot>
