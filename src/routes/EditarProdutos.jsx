@@ -55,9 +55,8 @@ export default function EditarProdutos() {
   return (
     <>
       <div className="container">
+        <h1>EDITANDO {produtoEditado.nome}</h1>
         <form onSubmit={handleAtualizar}>
-          <fieldset>
-            <legend>EDITAR PRODUTO</legend>
             <div>
               <label htmlFor="idProduto">Nome Produto:</label>
               <input
@@ -92,9 +91,9 @@ export default function EditarProdutos() {
             <div>
               <button className="btn">EDITAR</button>
             </div>
-          </fieldset>
         </form>
       </div>
     </>
   );
 }
+

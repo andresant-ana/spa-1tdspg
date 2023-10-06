@@ -89,7 +89,7 @@ export default function Produtos() {
                     <Editar/>
                   </Link>{" "}
                   /{" "}
-                  <Link onClick={() => handleExcluir(produto.id)}>
+                  <Link to = {`/excluir/produto/${produto.id}`}>
                     <Excluir/>
                   </Link>{" "}
                 </td>
