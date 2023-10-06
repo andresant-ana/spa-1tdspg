@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ListaProdutos } from "../components/ListaProdutos";
 import { useEffect, useState } from "react";
+import "./ExcluirProduto.scss";
 
 export default function ExcluirProduto() {
   document.title = "Excluir Produto";
@@ -30,12 +30,12 @@ export default function ExcluirProduto() {
   useEffect(() => {
     
     fetch(`http://localhost:5000/produtos/${id}`)
-
-    .then((response) => response.json())
-    .then(response => setProduto(response))
-    .catch((error) => console.log(error))
+      .then((response) => response.json())
+      .then(response => setProduto(response))
+      .catch((error) => console.log(error))
 
   }, [id]);
+
 
   // const produtoObj = ListaProdutos.filter((item) => item.id == id)[0];
 
@@ -61,12 +61,18 @@ export default function ExcluirProduto() {
 
   return (
     <>
-      <h1>Excluir Produto</h1>
-      <div>
+      <h1 className="title">Excluir Produto</h1>
+      <div className="card">
         <h2>{`Deseja realmente excluir o produto ${produto.nome}?`}</h2>
-        <div>
-          <button className="btn" onClick={handleExcluir}>EXCLUIR</button>
-          <button className="btn" onClick={()=> navigate("/produtos")}>CANCELAR</button>
+        <div className="cardProduto">
+
+          <img src={produto.img} alt={produto.desc} />
+          <p>Nome: {produto.nome}</p>
+          <p>Descrição: {produto.desc}</p>
+          <p>Preço: R${produto.preco},00</p>
+
+          <button className="btnExcluir" onClick={handleExcluir}>EXCLUIR</button>
+          <button className="btnCancelar" onClick={()=> navigate("/produtos")}>CANCELAR</button>
         </div>
       </div>
     </>

@@ -1,0 +1,50 @@
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
+.title {
+    color: #591bcc;
+    padding: 20px;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: .9px .9px .9px #000;
+    font-size: 4.5vw;
+    border-top: #591bcc 2px solid;
+}
+
+h2 {
+    color: #591bcc;
+}
+
+.cardProduto {
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        display: block;
+        width: 45%;
+    }
+
+    p {
+        font-size: 18px;
+        color: #591bcc;
+        font-weight: 600;
+        padding: 7px 5px;
+    }
+
+}
+
+.btnExcluir, .btnCancelar {
+    background-color: #591bcc;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(80%);
+    }
+}

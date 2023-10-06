@@ -32,23 +32,7 @@ export default function Produtos() {
       .catch((error) => console.log(error));
     }
   }, [open]);
-  
 
-  const handleExcluir = (id) => {
-
-    fetch(`http://localhost:5000/produtos/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        }
-    })
-
-    .then((response) => console.log(response.status))
-    .catch((error) => console.log(error))
-
-    window.location("produtos");
-
-  }
 
   return (
     <>
@@ -104,10 +88,6 @@ export default function Produtos() {
               </td>
 
               <Link className="btn" onClick={() => setOpen(true)}>ADICIONAR NOVO PRODUTO</Link>
-
-              {/* <Link to={`/adicionar/produto`} className="btn">
-                ADICIONAR NOVO PRODUTO
-              </Link> */}
 
             </div>
           </tfoot>
