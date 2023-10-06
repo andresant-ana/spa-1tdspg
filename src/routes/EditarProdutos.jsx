@@ -1,24 +1,28 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ListaProdutos } from "../components/ListaProdutos";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function EditarProdutos() {
   document.title = "Editar Produtos";
 
   const navigate = useNavigate();
-
-
   const { id } = useParams();
 
-  const prodRecuperadoPorId = ListaProdutos.filter((produto) => produto.id == id);
-
   const [produtoEditado, setProdutoEditado] = useState({
-    id: prodRecuperadoPorId[0].id,
-    nome: prodRecuperadoPorId[0].nome,
-    preco: prodRecuperadoPorId[0].preco,
-    desc: prodRecuperadoPorId[0].desc,
-    img: prodRecuperadoPorId[0].img
+    id: "",
+    nome: "",
+    preco: "",
+    desc: "",
+    img: ""
   });
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/produtos/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProdutoEditado(data);
+      })
+      .catch((error) => console.error("Erro:", error));
+  }, [id]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
