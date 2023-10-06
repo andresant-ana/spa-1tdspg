@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
+
 .btn, .qtd {
 
     color: #5900ff;
@@ -18,4 +20,10 @@
     &:hover {
         filter: brightness(80%);
     }
+}
+
+.msg {
+    padding: 30px;
+    font-family: 'Minecraft', sans-serif;
+    text-shadow: .5px .5px .5px #000;
 }
